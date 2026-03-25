@@ -4,7 +4,7 @@
 //  - Wire the hsync and vsync signals to top level outputs
 //  - Add a 3-bit (or more) "rgb" output to the top level
 
-module hvsync_generator(clk, reset, mode, hsync, vsync, display_on, hpos, vpos);
+module hvsync_generator(clk, mode, hsync, vsync, display_on, hpos, vpos);
     parameter integer NM = 4; // number of modes
 /*
     // [0] VGA       640 x  480 @ 60 fps ( 25.175 MHz)
@@ -56,7 +56,6 @@ module hvsync_generator(clk, reset, mode, hsync, vsync, display_on, hpos, vpos);
     parameter [   NM-1:0] V_SYNC          = { 1'b   0,  1'b   0,  1'b  1,  1'b  0}; // 0 (-), 1 (+)
 
 	input wire clk;
-	input wire reset;
 	input wire [1:0] mode;
 	output reg hsync, vsync;
 	output wire display_on;
@@ -72,8 +71,6 @@ module hvsync_generator(clk, reset, mode, hsync, vsync, display_on, hpos, vpos);
 	output reg [10:0] hpos; // horizontal position counter
 	output reg [10:0] vpos; // vertical position counter
 
-	//wire hmaxxed = (hpos == h_max); || reset; // set when hpos is maximum
-	//wire vmaxxed = (vpos == v_max); || reset; // set when vpos is maximum
 	wire hmaxxed = (hpos >= h_max); // set when hpos exceeds maximum
 	wire vmaxxed = (vpos >= v_max); // set when vpos exceeds maximum
 	wire hactive = (hpos >= h_sync_start) && (hpos <= h_sync_end);

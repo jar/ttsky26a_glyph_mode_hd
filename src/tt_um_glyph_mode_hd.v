@@ -32,8 +32,8 @@ module tt_um_glyph_mode_hd(
 	wire [6:0] x_mix = {xb[7] ^ xb[3], xb[1], xb[4], xb[1], xb[6], xb[0], xb[2]};
 	wire [2:0] g_x = hpos[2:0];
 	wire [6:0] yb;
-	wire [4:0] _unused;
-	assign {_unused, yb} = vpos / 10'd12;
+	wire [3:0] _unused;
+	assign {_unused, yb} = vpos / 11'd12;
 	wire [6:0] g_unused;
 	wire [3:0] g_y;
 	assign {g_unused, g_y} = vpos - {yb, 3'b000} - {1'b0, yb, 2'b00};
@@ -48,7 +48,6 @@ module tt_um_glyph_mode_hd(
 	// VGA output
 	hvsync_generator hvsync_gen(
 		.clk(clk),
-		.reset(~rst_n),
 		.mode(ui_in[7:6]),
 		.hsync(hsync),
 		.vsync(vsync),
@@ -95,7 +94,7 @@ module tt_um_glyph_mode_hd(
 	wire [6:0] f = v & e;
 	wire [6:0] x = v >> a;
 	wire [2:0] y = ~x[2:0];
-	wire [10:0] drop = {1'b0, yb, 3'd0} >> s;
+	wire [9:0] drop = {yb, 3'd0} >> s;
 	wire drop_bit = ({3'd0, x_mix} + drop > frame) & ~rst_drop;
 	wire [5:0] glyph_color = {6{drop_bit}} ^ color;
 
