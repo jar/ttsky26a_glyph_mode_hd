@@ -26,13 +26,13 @@ following table.
 
 **Pins 6 and 7 paired with pixel clock**
 
-| `ui_io[7:6]` | Clock (MHz) | VGA Timing Mode     |
-|-------------:|:------------|--------------------:|
-|  (default) 0 | 25.175      |  640 x 480 @ 60 fps |
-|            1 | 34.96       |  768 x 576 @ 60 fps |
-|            2 | 40.0        |  800 x 600 @ 60 fps |
-|            3 | 65.0        | 1024 x 768 @ 60 fps |
-
+| `ui_io[7:6]` | Clock (MHz) | VGA Timing Mode             |
+|-------------:|:------------|----------------------------:|
+|  (default) 0 | 25.175      |  640 x  480 @ 60 fps ( VGA) |
+|            1 | 40.0        |  800 x  600 @ 60 fps (SVGA) |
+|            2 | 34.694      |  960 x  540 @ 60 fps ( qHD) |
+|            3 | 64.0        | 1280 x  720 @ 60 fps (  HD) |
+ 
 ### Additional Palette Input
 
 The circuit accepts two pins `ui_io[0]` and `ui_io[1]` for palette selection:
