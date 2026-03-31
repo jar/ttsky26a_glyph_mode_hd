@@ -12,13 +12,12 @@ module glyphs_rom(
 	output wire pixel
 );
 	localparam N = 54; // number of glyphs
-	localparam H = 12; // glyph height
-	localparam D = N * H; // depth
+	localparam D = 648; // N * 12 depth
 	wire [5:0] wrapped_c = (c < N) ? c : c - N;
 	//wire [9:0] addr = H * wrapped_c + y;
 	wire [9:0] addr = {1'b0, wrapped_c, 3'b000} + {2'b0, wrapped_c, 2'b00} + {6'b000000, y};
 	assign pixel = g[addr][x];
-	localparam [7:0] g[D-1:0] = {
+	localparam [7:0] g[D-1:0] = '{
 		8'b00000110,
 		8'b10000110,
 		8'b10000110,
