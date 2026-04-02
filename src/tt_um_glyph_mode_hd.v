@@ -15,10 +15,13 @@ module tt_um_glyph_mode_hd(
 	input  wire       clk,      // clock
 	input  wire       rst_n     // reset_n - low to reset
 );
+	// Inputs
+	wire [1:0] palette = ui_in[1:0];
+	wire [1:0] mode    = ui_in[7:6];
 
-	// VGA signals
+	// Display signals
 	wire hsync, vsync, display_on;
-	wire [10:0] hpos;
+	wire [11:0] hpos;
 	wire [10:0] vpos;
 
 	// TinyVGA PMOD
@@ -40,7 +43,7 @@ module tt_um_glyph_mode_hd(
 	wire hl;
 
 	// Suppress unused signals warning
-	wire _unused_ok = &{ena, ui_in[5:2], uio_in};
+	wire _unused_ok = &{ena, ui_in[5:2], uio_in, hpos[11]};
 
 	reg [9:0] frame;
 	reg rst_drop;
@@ -48,7 +51,7 @@ module tt_um_glyph_mode_hd(
 	// VGA output
 	hvsync_generator hvsync_gen(
 		.clk(clk),
-		.mode(ui_in[7:6]),
+		.mode(mode),
 		.hsync(hsync),
 		.vsync(vsync),
 		.display_on(display_on),
@@ -68,7 +71,7 @@ module tt_um_glyph_mode_hd(
 	wire [5:0] color;
 	palette_rom palettes(
 		.cid(y),
-		.pid(ui_in[1:0]),
+		.pid(palette),
 		.color(color)
 	);
 
@@ -107,10 +110,10 @@ module tt_um_glyph_mode_hd(
 			rst_drop <= 0;
 			frame <= 0;
 		end else begin
-			if (&frame) begin
+			if (&frame[9:1]) begin
 				rst_drop <= 1;
 			end
-			frame <= frame + 1;
+			frame <= frame + ((mode == 3) ? 2 : 1); // 1080p30 mode doubles framerate
 		end
 	end
 
