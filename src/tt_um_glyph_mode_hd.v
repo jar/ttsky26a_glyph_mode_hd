@@ -17,6 +17,8 @@ module tt_um_glyph_mode_hd(
 );
 	// Inputs
 	wire [2:0] palette = ui_in[2:0];
+	wire       pause   = ui_in[3];
+	wire       reverse = ui_in[4];
 	wire [1:0] mode    = ui_in[7:6];
 
 	// Display signals
@@ -43,7 +45,7 @@ module tt_um_glyph_mode_hd(
 	wire hl;
 
 	// Suppress unused signals warning
-	wire _unused_ok = &{ena, ui_in[5:3], uio_in, hpos[11]};
+	wire _unused_ok = &{ena, ui_in[5], uio_in, hpos[11]};
 
 	reg [9:0] frame;
 	reg rst_drop;
@@ -110,7 +112,7 @@ module tt_um_glyph_mode_hd(
 			if (&frame[9:1]) begin
 				rst_drop <= 0;
 			end
-			frame <= frame + ((mode == 3) ? 2 : 1); // 1080p30 mode doubles framerate
+			frame <= frame + (pause ? 0 : (reverse ? ((mode == 3) ? -2 : -1) : ((mode == 3) ? 2 : 1))); // 1080p30 mode doubles framerate
 		end else begin
 			rst_drop <= 1;
 			frame <= 0;
