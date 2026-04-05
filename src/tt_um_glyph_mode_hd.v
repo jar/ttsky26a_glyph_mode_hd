@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 James Ross
+ * Copyright (c) 2024-2026 James Ross
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -16,7 +16,7 @@ module tt_um_glyph_mode_hd(
 	input  wire       rst_n     // reset_n - low to reset
 );
 	// Inputs
-	wire [1:0] palette = ui_in[1:0];
+	wire [2:0] palette = ui_in[2:0];
 	wire [1:0] mode    = ui_in[7:6];
 
 	// Display signals
@@ -43,7 +43,7 @@ module tt_um_glyph_mode_hd(
 	wire hl;
 
 	// Suppress unused signals warning
-	wire _unused_ok = &{ena, ui_in[5:2], uio_in, hpos[11]};
+	wire _unused_ok = &{ena, ui_in[5:3], uio_in, hpos[11]};
 
 	reg [9:0] frame;
 	reg rst_drop;
@@ -98,7 +98,7 @@ module tt_um_glyph_mode_hd(
 	wire [6:0] x = v >> a;
 	wire [2:0] y = ~x[2:0];
 	wire [9:0] drop = {yb, 3'd0} >> s;
-	wire drop_bit = ({3'd0, x_mix} + drop > frame) & ~rst_drop;
+	wire drop_bit = ({3'd0, x_mix} + drop > frame) & rst_drop;
 	wire [5:0] glyph_color = {6{drop_bit}} ^ color;
 
 	wire [5:0] z = (&(~v[2:0]) & &(y)) ? 6'd63 : glyph_color;
@@ -106,14 +106,14 @@ module tt_um_glyph_mode_hd(
 	wire [5:0] RGB = (display_on & hl & ~(|f | n | drop_bit)) ? z : 6'd0;
 
 	always @(posedge vsync, negedge rst_n) begin
-		if (~rst_n) begin
-			rst_drop <= 0;
-			frame <= 0;
-		end else begin
+		if (rst_n) begin
 			if (&frame[9:1]) begin
-				rst_drop <= 1;
+				rst_drop <= 0;
 			end
 			frame <= frame + ((mode == 3) ? 2 : 1); // 1080p30 mode doubles framerate
+		end else begin
+			rst_drop <= 1;
+			frame <= 0;
 		end
 	end
 
