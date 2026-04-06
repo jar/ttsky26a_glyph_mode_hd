@@ -41,7 +41,7 @@ module palette_rom(
 		palette[2][6] = 6'b011011;
 		palette[2][7] = 6'b101011;
 
-		palette[3][0] = 6'b000000; // grape
+		palette[3][0] = 6'b000000; // grape soda
 		palette[3][1] = 6'b010001;
 		palette[3][3] = 6'b100001;
 		palette[3][2] = 6'b100010;
@@ -59,22 +59,22 @@ module palette_rom(
 		palette[4][6] = 6'b111101;
 		palette[4][7] = 6'b111110;
 
-		palette[5][0] = 6'b000000; // monochrome
-		palette[5][1] = 6'b111111;
-		palette[5][2] = 6'b111111;
-		palette[5][3] = 6'b111111;
-		palette[5][4] = 6'b111111;
-		palette[5][5] = 6'b111111;
-		palette[5][6] = 6'b111111;
+		palette[5][0] = 6'b000000; // noir
+		palette[5][1] = 6'b010101;
+		palette[5][2] = 6'b010101;
+		palette[5][3] = 6'b010101;
+		palette[5][4] = 6'b101010;
+		palette[5][5] = 6'b101010;
+		palette[5][6] = 6'b101010;
 		palette[5][7] = 6'b111111;
 
-		palette[6][0] = 6'b000000; // grayscale
-		palette[6][1] = 6'b010101;
-		palette[6][2] = 6'b010101;
-		palette[6][3] = 6'b010101;
-		palette[6][4] = 6'b101010;
-		palette[6][5] = 6'b101010;
-		palette[6][6] = 6'b101010;
+		palette[6][0] = 6'b000000; // monochrome
+		palette[6][1] = 6'b111111;
+		palette[6][2] = 6'b111111;
+		palette[6][3] = 6'b111111;
+		palette[6][4] = 6'b111111;
+		palette[6][5] = 6'b111111;
+		palette[6][6] = 6'b111111;
 		palette[6][7] = 6'b111111;
 
 		palette[7][0] = 6'b000000; // pride
