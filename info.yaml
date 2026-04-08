@@ -3,7 +3,7 @@ project:
   title:       "Glyph Mode HD"
   author:      "James Ross"
   discord:     "jar#1709"
-  description: "Improved Matrix digital rain animation with 4 VGA modes"
+  description: "Improved Matrix digital rain animation up to Full HD"
   language:    "Verilog"
   clock_hz:    25175000
 
@@ -25,14 +25,15 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: "Palette 0"
-  ui[1]: "Palette 1"
+  ui[0]: "Palette Bit 0"
+  ui[1]: "Palette Bit 1"
+  ui[1]: "Palette Bit 2"
   ui[2]: ""
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
-  ui[6]: "VGA Mode bit 0"
-  ui[7]: "VGA Mode bit 1"
+  ui[6]: "VGA Mode Bit 0"
+  ui[7]: "VGA Mode Bit 1"
 
   # Outputs
   uo[0]: "R1"
