@@ -38,16 +38,18 @@ following table.
 
 Use **Pins 0, 1, and 2** `ui_io[2:0]` for palette selection:
 
-| `ui_io[2:0]` | Palette    | Example |
-|-------------:|:-----------|---------|
-|  (default) 0 | Green      |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#050">#</span><span style="color:#0A0">#</span><span style="color:#0F0">#</span><span style="color:#0F5">#</span><span style="color:#5F5">#</span><span style="color:#5FA">#</span><span style="color:#AFA">#</span><span style="color:#FFF">#</span></div>|
-|            1 | Red        |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#500">#</span><span style="color:#A00">#</span><span style="color:#F00">#</span><span style="color:#F05">#</span><span style="color:#F55">#</span><span style="color:#F5A">#</span><span style="color:#FAA">#</span><span style="color:#FFF">#</span></div>|
-|            2 | Blue       |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#005">#</span><span style="color:#00A">#</span><span style="color:#00F">#</span><span style="color:#05F">#</span><span style="color:#55F">#</span><span style="color:#5AF">#</span><span style="color:#AAF">#</span><span style="color:#FFF">#</span></div>|
-|            3 | Grape Soda |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#505">#</span><span style="color:#A05">#</span><span style="color:#A0A">#</span><span style="color:#F0A">#</span><span style="color:#F0F">#</span><span style="color:#F5F">#</span><span style="color:#FAF">#</span><span style="color:#FFF">#</span></div>|
-|            4 | Hellfire   |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#500">#</span><span style="color:#A00">#</span><span style="color:#F50">#</span><span style="color:#FA0">#</span><span style="color:#FF0">#</span><span style="color:#FF5">#</span><span style="color:#FFA">#</span><span style="color:#FFF">#</span></div>|
-|            5 | Monochrome |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span></div>|
-|            6 | Noir       |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#555">#</span><span style="color:#555">#</span><span style="color:#555">#</span><span style="color:#AAA">#</span><span style="color:#AAA">#</span><span style="color:#AAA">#</span><span style="color:#FFF">#</span><span style="color:#FFF">#</span></div>|
-|            7 | Rainbow    |<div style="background:#000;font-weight:bolder;font-family:monospace"><span style="color:#F00">#</span><span style="color:#FA0">#</span><span style="color:#FF0">#</span><span style="color:#0A0">#</span><span style="color:#05F">#</span><span style="color:#A0A">#</span><span style="color:#F0F">#</span><span style="color:#FFF">#</span></div>|
+| `ui_io[2:0]` | Palette    |
+|-------------:|:-----------|
+|  (default) 0 | Green      |
+|            1 | Red        |
+|            2 | Blue       |
+|            3 | Grape Soda |
+|            4 | Hellfire   |
+|            5 | Monochrome |
+|            6 | Noir       |
+|            7 | Rainbow    |
+
+![Color Palettes](palettes.png)
 
 ## External hardware
 
