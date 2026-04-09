@@ -27,8 +27,7 @@ pinout:
   # Inputs
   ui[0]: "Palette Bit 0"
   ui[1]: "Palette Bit 1"
-  ui[1]: "Palette Bit 2"
-  ui[2]: ""
+  ui[2]: "Palette Bit 2"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
