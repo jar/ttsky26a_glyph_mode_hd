@@ -8,12 +8,15 @@ Matrix* Digital Rain effect.
 Upon circuit reset, the glyphs will appear to fall from the top of the screen.
 Additionally, some glyphs will intermittently change.
 
-You can change the palette with the three pins, `ui_in[2:0]`.  You can pause the animation with the fourth pin, `ui_in[3]`
+ - Change the palette with the three pins `ui_in[2:0]`
+ - Mix multiple palettes with the fourth pin, `ui_in[3]`
+ - Pause the animation with the fifth pin, `ui_in[4]`
+ - Change the display resolution mode with pins `ui_in[7:6]`
 
-**NOTE** The default VGA timing requires a pixel clock of 25.175 MHz. If you
+**NOTE**: The default VGA timing requires a pixel clock of 25.175 MHz. If you
 want to drive higher resolutions, the base clock rate must be adjusted
-accordingly with the Display Clocks table below. You must also set the two
-pins `ui_in[7:6]` to select your preferred mode.
+accordingly with the Display Clocks table below. You must also set the two pins
+`ui_in[7:6]` to select your preferred mode.
 
 ## How to Test
 

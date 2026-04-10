@@ -21,7 +21,7 @@ limit, including:
   - 800x600 (SVGA)
   - 1280x720 (720p HD)
   - 1920x1080 (Full HD)
-- Twice the number of color palettes (8 total)
+- Twice the number of color palettes (8 total) and a mixed palette mode
 - Upon reset, the glyphs appear to fall from the top of the display
 - Smoother rain (fast columns no longer jump two glyphs at a time)
 - There are changing glyphs which periodically alternate

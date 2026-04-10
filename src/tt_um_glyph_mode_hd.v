@@ -16,8 +16,9 @@ module tt_um_glyph_mode_hd(
 	input  wire       rst_n     // reset_n - low to reset
 );
 	// Inputs
-	wire [2:0] palette = ui_in[2:0];
-	wire       pause   = ui_in[3];
+	wire [2:0] palette = mix ? xb[2:0] : ui_in[2:0];
+	wire       mix     = ui_in[3];
+	wire       pause   = ui_in[4];
 	wire [1:0] mode    = ui_in[7:6];
 
 	// Display signals
