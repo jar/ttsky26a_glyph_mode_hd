@@ -8,26 +8,26 @@ Matrix* Digital Rain effect.
 Upon circuit reset, the glyphs will appear to fall from the top of the screen.
 Additionally, some glyphs will intermittently change.
 
-You can change the palette with the three pins, `ui_io[2:0]`.
+You can change the palette with the three pins, `ui_in[2:0]`.  You can pause the animation with the fourth pin, `ui_in[3]`
 
 **NOTE** The default VGA timing requires a pixel clock of 25.175 MHz. If you
 want to drive higher resolutions, the base clock rate must be adjusted
 accordingly with the Display Clocks table below. You must also set the two
-pins `ui_io[7:6]` to select your preferred mode.
+pins `ui_in[7:6]` to select your preferred mode.
 
 ## How to Test
 
 Plug into a VGA monitor and select this circuit to test. By default, the
 circuit must be clocked at (or very near) to **25.175 MHz**. There are four VGA
 timing modes, representing four different display resolutions, which must be
-both specifically clocked *and* have the pins `ui_io[7:6]` set according to the
+both specifically clocked *and* have the pins `ui_in[7:6]` set according to the
 following table.
 
 ### Display Clocks
 
 **Pins 6 and 7 must be paired with pixel clock**
 
-| `ui_io[7:6]` | Clock (Hz) | VGA Timing Mode             |
+| `ui_in[7:6]` | Clock (Hz) | VGA Timing Mode             |
 |-------------:|-----------:|----------------------------:|
 |  (default) 0 |   25175000 |  640 x  480 @ 60 fps ( VGA) |
 |            1 |   40000000 |  800 x  600 @ 60 fps (SVGA) |
@@ -36,9 +36,9 @@ following table.
  
 ### Palette Input
 
-Use **Pins 0, 1, and 2** `ui_io[2:0]` for palette selection:
+Use **Pins 0, 1, and 2** `ui_in[2:0]` for palette selection:
 
-| `ui_io[2:0]` | Palette    |
+| `ui_in[2:0]` | Palette    |
 |-------------:|:-----------|
 |  (default) 0 | Green      |
 |            1 | Red        |

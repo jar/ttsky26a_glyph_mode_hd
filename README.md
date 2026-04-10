@@ -24,8 +24,9 @@ limit, including:
 - Twice the number of color palettes (8 total)
 - Upon reset, the glyphs appear to fall from the top of the display
 - Smoother rain (fast columns no longer jump two glyphs at a time)
-- There are changing glyphs (periodically alternate)
+- There are changing glyphs which periodically alternate
 - Added 6 more glyphs from the movie (54 total)
+- You can pause the animation
 - The Verilog source has been improved with better comments
 
 [Read the documentation](docs/info.md) to learn how to use the circuit.
