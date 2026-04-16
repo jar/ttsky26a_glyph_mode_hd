@@ -16,17 +16,18 @@ Demoscene](https://tinytapeout.com/competitions/demoscene-ttsky26a-announce/).
 A number of improvements have been made, while maintaining the single tile
 limit, including:
 
-- Four different display resolutions with ~7x the pixels!
+- Four different display resolutions with up to ~7x the pixels!
   - 640x480 (VGA) default
   - 800x600 (SVGA)
   - 1280x720 (720p HD)
   - 1920x1080 (Full HD)
 - Twice the number of color palettes (8 total) and a mixed palette mode
 - Upon reset, the glyphs appear to fall from the top of the display
-- Smoother rain (fast columns no longer jump two glyphs at a time)
+- Smoother rain animation (fast columns no longer jump two glyphs at a time)
 - There are changing glyphs which periodically alternate
 - Added 6 more glyphs from the movie (54 total)
 - You can pause the animation
+- An alternative display mode is supported for a second monitor
 - The Verilog source has been improved with better comments
 
 [Read the documentation](docs/info.md) to learn how to use the circuit.

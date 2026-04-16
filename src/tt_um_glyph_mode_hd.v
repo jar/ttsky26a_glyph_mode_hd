@@ -19,6 +19,7 @@ module tt_um_glyph_mode_hd(
 	wire [2:0] palette = {{3{mix}} & xb[2:0]} ^ ui_in[2:0];
 	wire       mix     = ui_in[3];
 	wire       pause   = ui_in[4];
+	wire       alt     = ui_in[5];
 	wire [1:0] mode    = ui_in[7:6];
 
 	// Display signals
@@ -45,7 +46,7 @@ module tt_um_glyph_mode_hd(
 	wire hl;
 
 	// Suppress unused signals warning
-	wire _unused_ok = &{ena, ui_in[5], uio_in, hpos[11]};
+	wire _unused_ok = &{ena, uio_in, hpos[11]};
 
 	reg [9:0] frame;
 	reg rst_drop;
@@ -91,7 +92,7 @@ module tt_um_glyph_mode_hd(
 
 	// column features
 	wire s = ^xb[6:0]; // speed of rain
-	wire n = xb[1] ^ xb[3] ^ xb[5]; // lit on or off
+	wire n = xb[1] ^ xb[3] ^ xb[5] ^ alt; // lit on or off
 
 	wire [6:0] v = (s ? frame[8:2] : frame[9:3]) - yb - x_mix;
 	wire [3:0] c = {1'b0, a} + d;
@@ -108,14 +109,14 @@ module tt_um_glyph_mode_hd(
 	wire [5:0] RGB = (display_on & hl & ~(|f | n | drop_bit)) ? z : 6'd0;
 
 	always @(posedge vsync, negedge rst_n) begin
-		if (rst_n) begin
+		if (~rst_n) begin
+			rst_drop <= 1;
+			frame <= 0;
+		end else begin
 			if (&frame[9:1]) begin
 				rst_drop <= 0;
 			end
 			frame <= frame + (pause ? 0 : ((mode == 3) ? 2 : 1)); // 1080p30 mode doubles framerate
-		end else begin
-			rst_drop <= 1;
-			frame <= 0;
 		end
 	end
 

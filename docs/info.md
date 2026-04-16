@@ -11,12 +11,17 @@ Additionally, some glyphs will intermittently change.
  - Change the palette with the three pins `ui_in[2:0]`
  - Mix multiple palettes with the fourth pin, `ui_in[3]`
  - Pause the animation with the fifth pin, `ui_in[4]`
+ - Alternative (second monitor) pattern with the sixth pin, `ui_in[5]`
  - Change the display resolution mode with pins `ui_in[7:6]`
 
 **NOTE**: The default VGA timing requires a pixel clock of 25.175 MHz. If you
 want to drive higher resolutions, the base clock rate must be adjusted
-accordingly with the Display Clocks table below. You must also set the two pins
-`ui_in[7:6]` to select your preferred mode.
+accordingly with the Display Clocks table below. While these other modes use
+standard display timings, you should check with your display documentation to
+verify that the modes are supported. You must also set the two pins
+`ui_in[7:6]` to select your preferred mode. Both the 720p and 1080p30 modes use
+the same clock of 74.25 MHz. There were challenges driving this circuit at
+frequencies high enough to support 1080p at 60 frames per second (FPS).
 
 ## How to Test
 
@@ -32,10 +37,10 @@ following table.
 
 | `ui_in[7:6]` | Clock (Hz) | VGA Timing Mode             |
 |-------------:|-----------:|----------------------------:|
-|  (default) 0 |   25175000 |  640 x  480 @ 60 fps ( VGA) |
-|            1 |   40000000 |  800 x  600 @ 60 fps (SVGA) |
-|            2 |   74250000 | 1280 x  720 @ 60 fps (  HD) |
-|            3 |   74250000 | 1920 x 1080 @ 30 fps ( FHD) |
+|  (default) 0 |   25175000 |  640 x  480 @ 60 FPS (VGA)  |
+|            1 |   40000000 |  800 x  600 @ 60 FPS (SVGA) |
+|            2 |   74250000 | 1280 x  720 @ 60 FPS (HD)   |
+|            3 |   74250000 | 1920 x 1080 @ 30 FPS (FHD)  |
  
 ### Palette Input
 
