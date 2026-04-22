@@ -16,9 +16,9 @@ Demoscene](https://tinytapeout.com/competitions/demoscene-ttsky26a-announce/).
 A number of improvements have been made, while maintaining the single tile
 limit, including:
 
-- Four different display resolutions with up to ~7x the pixels!
+- Four different display resolutions at higher clock--up to ~7x the pixels!
   - 640x480 (VGA) default
-  - 800x600 (SVGA)
+  - 1024x768 (XGA)
   - 1280x720 (720p HD)
   - 1920x1080 (Full HD)
 - Twice the number of color palettes (8 total) and a mixed palette mode
